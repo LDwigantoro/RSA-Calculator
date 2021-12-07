@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -6,118 +5,50 @@
     <meta charset="utf-8">
     <title>Kalkulator RSA by Kelompok 4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="about-us.css">
-    <style>
-        * {
-        margin:0; 
-        padding:0;
-        }
-        header {
-            color: white;
-            background-color:black;
-            padding:10px;
-            text-align: center;
-        }
-
-        #clear {
-            clear: left
-        }
-
-        .help {
-            color: grey
-        }        
-
-        td, th {
-            padding: 0px 10px 0px 10px;
-            text-align: left;                   
-        }
-
-        #enKeyListSpan, #deKeyListSpan {
-            color: red
-        }
-
-        .key {
-            padding: 10px;
-            margin: 1px;
-            border: 1px solid grey;
-            font-weight: bold
-        }
-
-        .key-label {
-            color:blue
-
-        }
-
-        .key-value {
-            color:red
-        }
-
-        article {
-            border: 1px solid grey;
-            margin: 10px 10px 30px 10px;
-            padding: 10px
-        }
-
-        .input-in-col {
-            width: 100px;
-        }
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-          }
-          
-          .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-          }
-          
-          .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-          }
-          
-          .topnav a.active {
-            background-color: #04AA6D;
-            color: white;
-          }
-          
-    </style>
-
-    <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
-
+<section class="company-heading intro-type" id="parallax-one">
+    <div class="container">
+       <div class="row product-title-info">
+          <div class="col-md-12">
+             <h1>
+                Rivest Shamir Adleman Calculator
+             </h1>
+          </div>
+       </div>
+    </div>
+    <div class="parallax" id="parallax-cta" style="background-image:url(../img/hero.jpg);">
+       &nbsp;
+    </div>
+ </section>
 <body>
-    <header>
-        <h1>
-            <div id="title">Rivest Shamir Adleman Calculator</div>
-        </h1>
-        <div id="author" style="background-image : url('../img/background.jpg');">by: Kelompok 4</div>
-        <div id="clear"></div>
-    </header>
-    <br/>
-    <div class = "topnav">
-        <a class = "active" href ="index.html">Home</a>
-        <a href = "aboutrsa.html">About RSA</a>
-        <a href = "aboutus.html">About Us</a>
+    <div class="topnav">
+        <a class="active" href="index.html">Halaman Utama</a>
+        <a href="aboutrsa.html">Tentang Kriptografi RSA</a>
+        <a href="aboutus.html">Tentang Kelompok Kami</a>
     </div>
     <article>
         <h1>Pembangkitan Kunci Privat dan Kunci Publik</h1>
         <p>Masukkan Dua Bilangan Prima (P, Q)</p>
         <div>
-            <div><p>P: <input type="text" id="p"></p></div>
-            <div><p>Q: <input type="text" id="q"></p></div> 
-            <div><span class="help">Contoh Bilangan Prima yang Bisa Digunakan: 11, 13, 17, 19, 23, 29, 191, 193, 197, 199, dst. </span></div>
+            <div>
+                <p>P: <input type="text" id="p"></p>
+            </div>
+            <div>
+                <p>Q: <input type="text" id="q"></p>
+            </div>
+            <div><span class="help">Contoh Bilangan Prima yang Bisa Digunakan: 11, 13, 17, 19, 23, 29, 191, 193, 197,
+                    199, dst. </span></div>
         </div>
-        <p><input type="button" value="Hitung" onclick="calculate()"/></p>
-        <hr/>
+        <p><input class="button" type="button" value="Hitung" onclick="calculate()" /></p>
+        <hr />
         <div style="overflow: auto;">
             <table class="pure-table pure-table-bordered">
                 <thead>
@@ -128,35 +59,36 @@
                         <th>Deskripsi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <table>
                     <tr>
                         <td>N</td>
-                        <td><input type="text" id="n" class="input-in-col" readonly/></td>
+                        <td><input type="text" id="n" class="input-in-col" readonly /></td>
                         <td>N = P * Q</td>
                         <td class="help">Perkalian P dan Q</td>
                     </tr>
                     <tr>
                         <td>M</td>
-                        <td><input type="text" id="m" class="input-in-col" readonly/></td>
+                        <td><input type="text" id="m" class="input-in-col" readonly /></td>
                         <td>M = (P - 1) * (Q - 1)</td>
                         <td class="help">Didapat dari (P-1)*(Q-1)</td>
                     </tr>
                     <tr>
                         <td>E</td>
-                        <td><input type="text" id="e" class="input-in-col" onchange="encryptorChanged()"/></td>
+                        <td><input type="text" id="e" class="input-in-col" onchange="encryptorChanged()" /></td>
                         <td>(gcd(E,M) = 1)</td>
-                        <td class="help">Angka diantara 1 dan M yang Koprima dengan M dan N.<span id="enKeyListSpan"></span></td>
+                        <td class="help">Angka diantara 1 dan M yang Koprima dengan M dan N.<span
+                                id="enKeyListSpan"></span></td>
                     </tr>
                     <tr>
                         <td>D</td>
-                        <td><input type="text" id="d" class="input-in-col" onchange="decryptorChanged()"/></td>
+                        <td><input type="text" id="d" class="input-in-col" onchange="decryptorChanged()" /></td>
                         <td>D = E^-1 MOD M</td>
                         <td class="help">ketika dihitung harus (D x E) mod M = 1<span id="deKeyListSpan"></span></td>
                     </tr>
-                </tbody>
+                <table>
             </table>
         </div>
-        <br>        
+        <br>
         <section>
             <div class="key">
                 <span class="key-label">Kunci Privat (E, N): </span><span id="private-key" class="key-value"></span>
@@ -168,183 +100,38 @@
     </article>
     <article>
         <h1>Enkripsi</h1>
-        <p>Masukan Pesan yang Ingin Dienkripsi (Plaintext): <input type="text" id="message"/></p>
-        <p><input type="button" value="Encrypt" onclick="encrypt()"/></p>
-        <hr/>
+        <p>Masukan Pesan yang Ingin Dienkripsi (Plaintext): <input type="text" id="message" /></p>
+        <p><input class="button" type="button" value="Enkripsi" onclick="encrypt()" /></p>
+        <hr />
         <p>Pesan Diconvert ke ASCII: <span id="ascii"></span></p>
         <p>Pesan Terenkripsi: (M)^E mod N </p>
         <section>
             <div class="key">
                 <span class="key-label">Hasil: </span><span id="encrypted-msg" class="key-value"></span>
-            </div>                
+            </div>
         </section>
     </article>
     <article>
         <h1>Dekripsi</h1>
-        <p>Masukan Pesan yang Sudah Terenkripsi (Ciphertext): <input type="text" id="encrypted-msg-textbox"/></p>
-        <p><input type="button" value="Decrypt" onclick="decrypt()"/></p>
-        <hr/>        
+        <p>Masukan Pesan yang Sudah Terenkripsi (Ciphertext): <input type="text" id="encrypted-msg-textbox" /></p>
+        <p><input class="button"  type="button" value="Dekripsi" onclick="decrypt()" /></p>
+        <hr />
         <p>Pesan Didekripsi ke ASCII code: <span id="ascii-decrypted"></span></p>
         <p>Pesan Terdekripsi: (C)^D mod N</p>
         <section>
             <div class="key">
                 <span class="key-label">Hasil: </span><span id="decrypted-msg" class="key-value"></span>
-            </div>                
+            </div>
         </section>
-    </article>   
-    <div class="footer-basic">
+    </article>
+    <div>
         <footer>
-            <p class="copyright">Copyright</p>
-            <p class="copyright">Kelompok 4 Praktikum Kriptografi @ 2021</p>
+            <p class="copyright" align="center">Kelompok 4 Praktikum Kriptografi 2021</p>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script>
-        "use strict";
-        
-        let e, d, n, l;
-
-        function validatePrime(prime, nameOfPrime) {
-            if(!isPrime(prime)) {
-                alert("'" + nameOfPrime + "' is not a prime number. Please enter a prime number.");
-                return false;
-            }
-            if(prime <= 7) {
-                alert("'" + nameOfPrime + "' should be greater than 7.");
-                return false;
-            }
-            return true;
-        }
-        
-        function calculate() {            
-            var p = document.getElementById("p").value;
-            var q = document.getElementById("q").value;
-            if (!(validatePrime(p, "p") && validatePrime(q, "q"))) return; 
-            n = p * q;
-            document.getElementById("n").value = n;
-            
-            l = (p - 1) * (q - 1);
-            document.getElementById("m").value = l;
-            
-            var es = findEncryptionKeys(l, n);
-            document.getElementById("e").value = es[0];
-            document.getElementById("enKeyListSpan").innerHTML = " Possible encryption keys are: " + es;
-            encryptorChanged();
-        }
-
-        function encryptorChanged() {
-            e = document.getElementById("e").value;            
-
-            var ds = findDecryptionKeys(e, l);
-            ds.splice(ds.indexOf(e), 1);  //remove encryption key from list
-            d = ds[0];
-            document.getElementById("d").value = d;
-            document.getElementById("deKeyListSpan").innerHTML = " Possible decryption keys are: " + ds;
-
-            document.getElementById("private-key").innerHTML = "(" + e + "," + n + ")";
-            document.getElementById("public-key").innerHTML = "(" + d + "," + n + ")";
-        }
-
-        function decryptorChanged() {
-            d = document.getElementById("d").value;
-            document.getElementById("public-key").innerHTML = "(" + d + "," + n + ")";
-        }
-
-        function isPrime(num) {
-            for (let i = 2, s = Math.sqrt(num); i <= s; i++)
-                if (num % i === 0) return false;
-            return num !== 1;
-        }
-
-        function findEncryptionKeys(l, n) {
-            var arr = [];
-            for(var i = 2; i < l; i++) {
-                if(isCoPrime(i, l) && isCoPrime(i, n))
-                    arr.push(i);
-                    if(arr.length > 5) break;
-            }     
-            return arr;
-        }
-
-        function isCoPrime(a, b) {            
-            var aFac = findFactors(a);
-            var bFac = findFactors(b);
-            var result = aFac.every(x => bFac.indexOf(x) < 0);
-            return result;
-        }
-
-        var hashtable = new Object();
-        function findFactors(num) {
-            if(hashtable[num])
-                return hashtable[num];
-
-            var half = Math.floor(num / 2), // Ensures a whole number <= num.
-                result = [],
-                i, j;
-
-                //result.push(1); // 1 should be a part of every solution but for our purpose of COPRIME 1 should be excluded
-
-            // Determine out increment value for the loop and starting point.
-            num % 2 === 0 ? (i = 2, j = 1) : (i = 3, j = 2);
-
-            for (i; i <= half; i += j) {
-                num % i === 0 ? result.push(i) : false;
-            }
-
-            result.push(num); // Always include the original number.
-            hashtable[num] = result;
-            return result;
-        }
-
-        function findDecryptionKeys(e, l) {
-            var ds = [];
-            for(var x = l + 1;x < l + 100000; x++) {
-                if(x * e % l === 1) {
-                    ds.push(x);
-                    if(ds.length > 5)   return ds;
-                }
-            }     
-            return ds;
-        }
-
-        function encrypt() {
-            var m = document.getElementById("message").value;
-            var ascii = Array.from(Array(m.length).keys()).map(i => m.charCodeAt(i));
-            document.getElementById("ascii").innerHTML = ascii;         
-            var encrypted = ascii.map(i => powerMod(i, e, n));   
-            document.getElementById("encrypted-msg").innerHTML = encrypted;
-            document.getElementById("encrypted-msg-textbox").value = encrypted;
-        }
-
-        function decrypt() {
-            var cipher = stringToNumberArray(document.getElementById("encrypted-msg-textbox").value);
-            var ascii = cipher.map(i => powerMod(i, d, n));
-            document.getElementById("ascii-decrypted").innerHTML = ascii;
-            var message = "";
-            ascii.map(x => message += String.fromCharCode(x));
-            document.getElementById("decrypted-msg").innerHTML = message;
-        }
-
-        function stringToNumberArray(str) {
-            return str.split(",").map(i => parseInt(i));
-        }
-
-        // calculates   base^exponent % modulus
-        function powerMod(base, exponent, modulus) {
-            if (modulus === 1) return 0;
-            var result = 1;
-            base = base % modulus;
-            while (exponent > 0) {
-                if (exponent % 2 === 1)  //odd number
-                    result = (result * base) % modulus;
-                exponent = exponent >> 1; //divide by 2
-                base = (base * base) % modulus;
-            }
-            return result;
-        }       
-        
-
-    </script> 
+    <script src="script.js"></script>
 </body>
+
 </html>
